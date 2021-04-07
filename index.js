@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qd8gm.mongodb.net/onlineGrosery?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qd8gm.mongodb.net/${DB_Name}?retryWrites=true&w=majority`;
 
 const app = express()
 
@@ -62,4 +62,4 @@ app.get('/', (req, res) => {
     res.send('Hello World! Now it is working.')
 })
 
-app.listen(port);
+app.listen(process.env.PORT || port);
